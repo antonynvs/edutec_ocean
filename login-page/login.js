@@ -14,7 +14,7 @@ async function login() {
     password
   }
 
-  const response = await fetch("http://localhost:3000/login", {
+  const response = await fetch("https://backend-ocean.vercel.app/login", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

@@ -6,7 +6,7 @@ export async function verifyToken(url){
         return
     }
 
-    const response = await fetch("http://localhost:3000/verify", {
+    const response = await fetch("https://backend-ocean.vercel.app/verify", {
       headers: {
             "Authorization": token
         }
