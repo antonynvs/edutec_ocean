@@ -6,9 +6,10 @@
 }
 
 .logo-site{
-    margin-top: 1rem;
-    margin-right: 110rem;
-    width: 5.68rem; 
+    display: flex;
+    transform: translateY(4rem);
+    margin-right: 100rem;
+    width: 6rem; 
 }
 main {
     display: flex;

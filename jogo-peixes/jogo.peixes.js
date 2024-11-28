@@ -19,14 +19,51 @@ const createElement = (tag, className) => {
 let firstCard = '';
 let secondCard = '';
 
+
+async function salvarTempo(tempo) {
+  const token = localStorage.getItem('token'); // Recupera o token de autenticação do localStorage
+
+  if (!token) {
+    console.error('Token não encontrado!');
+    return;
+  }
+
+  try {
+    const response = await fetch('https://backend-ocean.vercel.app/salvar-tempo', { // Substitua pela URL correta
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token // Envia o token no cabeçalho da requisição
+      },
+      body: JSON.stringify({
+        score: tempo // Envia o tempo de jogo como score
+      })
+    });
+
+    const data = await response.json();
+    if (data.message === 'Tempo salvo com sucesso') {
+      console.log('Tempo salvo com sucesso!');
+    } else {
+      console.error('Erro ao salvar o tempo:', data.message);
+    }
+  } catch (error) {
+    console.error('Erro ao fazer a requisição:', error);
+  }
+}
+
+// Função que verifica se o jogo foi concluído
 const checkEndGame = () => {
   const disabledCards = document.querySelectorAll('.disabled-card');
 
   if (disabledCards.length === 12) {
-    clearInterval(this.loop);
-    alert(`Parabéns! Seu tempo foi de: ${timer.innerHTML} segundos`);
+    clearInterval(this.loop); // Para o timer
+    const tempoFinal = parseInt(timer.innerHTML); // Obtém o tempo do jogo
+    alert(`Parabéns! Seu tempo foi de: ${tempoFinal} segundos`);
+
+    // Chama a função para salvar o tempo no banco de dados
+    salvarTempo(tempoFinal);
   }
-}
+};
 
 const checkCards = () => {
   const firstCharacter = firstCard.getAttribute('data-character');

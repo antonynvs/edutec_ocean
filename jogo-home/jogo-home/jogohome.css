@@ -72,6 +72,27 @@
       z-index: 1000; 
       left: 0.2rem;
   }
+
+  .menu button {
+    font-size: 1.5rem;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 20px;
+    font-family: "Barlow";
+    letter-spacing: 1px;
+    padding: 6px 15px;
+    border-radius: 30px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    color: antiquewhite;
+    background-color: #1b2280;
+    transition: .7s ;
+
+}
   
   .seta {
       position: fixed;

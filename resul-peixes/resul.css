@@ -15,14 +15,6 @@ main {
     background-size: 1000% 1000%;
 }
 
-.logo-site {
-    position: fixed;
-    top: 4rem; 
-    margin-left: -22rem; 
-    width: 5.68rem; 
-    height: auto; 
-    z-index: 1000; 
-}
 
 .tota {
     max-width: 1200px;
